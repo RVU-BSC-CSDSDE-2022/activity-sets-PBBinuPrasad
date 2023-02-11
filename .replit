@@ -1,4 +1,7 @@
 run = "cowsay Configure me!"
+entrypoint = "main.c"
+hidden = ["main", "main-debug", "**/*.o", "**/*.d", ".ccls-cache", "Makefile"]
+compile = ["make", "-s"]
 
 [nix]
 channel = "stable-21_11"
@@ -53,3 +56,14 @@ type = "cppdbg"
 description = "Enable pretty-printing for gdb"
 ignoreFailures = true
 text = "-enable-pretty-printing"
+
+[languages]
+
+[languages.c]
+pattern = "**/*.{c,h}"
+
+[languages.c.languageServer]
+start = "ccls"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", ".ccls-cache"]
