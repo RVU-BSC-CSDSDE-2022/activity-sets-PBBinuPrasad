@@ -39,7 +39,7 @@ Line input_line(){
 }
 
 void find_length(Line *l){
-  l->distance= (((l->p2.x - l->p1.x))+((l->p2.y - l->p1.x)));
+  l->distance =sqrt(((l->p2.x - l->p1.x)*(l->p2.x - l->p1.x))+((l->p2.y - l->p1.y)*(l->p2.y - l->p1.x)));
   printf("distance = %f\n",l->distance);
 }
 
